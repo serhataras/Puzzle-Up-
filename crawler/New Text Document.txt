@@ -1,0 +1,28 @@
+      for u in list1:
+        item = classitem()
+        item['src'] = u.xpath('.//img/@src').extract_first()
+        yield item
+   
+
+       for grid in crossword_Grid:
+            crosswordgrid = crosswordGrid()
+            crosswordgrid['gridtype'] = grid.css()
+            crosswordgrid['number']
+            crossword_right = grid.css(#xwd-board > g:nth-child(3) > 
+
+
+             if(grid.css('html body div#root div.app-appWrapper--2PSLL div.app-app--_ozdu.app-obscured--26XpG.app-displayFooter--1mrFd div.app-mainContainer--3CJGG div.app-pageContent--AoCNq main.CrosswordPage-franklin--7AtYc div.layout div.Layout-unveilable--3OmrG article.Layout-puzzle--2LgEY section.Layout-clueBarAndBoard--3N60g section.Board-board--3EB2l div.Board-boardContent--1AzTH svg#xwd-board.Board-svg--34be- g g rect#cell-id-0.Cell-block--1oNaD').__nonzero__()):
+                crosswordgrid['gridtype'] = 'blocked'
+                crosswordgrid['number'] = 'none'
+            else:
+                crosswordgrid['gridtype'] = 'blocked'
+                crosswordgrid['number'] = 'none'
+
+
+                #print(info)
+                if (info.css('rect#cell-id-0.Cell-block--1oNaD').extract() !=''):
+                    crossword_grid['gridType'] = 'open'
+                    crossword_grid['gridNumber'] = crosswordgridInfo.xpath('//*[@id="xwd-board"]/g[1]//g').extract()
+                else:
+                    crossword_grid['gridType'] = 'blocked'
+                    crossword_grid['gridNumber'] = 'none'
