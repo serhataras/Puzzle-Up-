@@ -11,41 +11,43 @@
     display: grid;
     grid-template-columns: 100px 100px 100px 100px 100px;
     grid-gap: 0px;
+    grid-template-rows: 100px 100px 100px 100px 100px;
     background-color: transparent;
     color: #444;
 }
 input[type=text] {
     width: 100%;
     height: 100%;
-    padding: 12px;
-    margin: 6px 0;
+    float: middle;
+    text-align-last: center;
     box-sizing: border-box;
     border: none;
-    border-bottom: 2px ;
     background-color:transparent;
-    display:flex; 
-    position: inherit;   
-    font-size: 24px;
+    font-size: 36px;
     outline : none;
     cursor:pointer;
 }
 .box 
 {
     background: linear-gradient(21deg, #e985d070, #1beabd73);   
-    padding: 20px 20px;
-    font-size: 150%;
+    size: 100px 100px;
     border-radius: 9999em;
     cursor:pointer;
 	
 }
-.box :hover{
+
+/*shine when hover over button*/
+.box :hover
+{
     background: lightgray;   
     border-radius: 9999em;
-    cursor:pointer;
+    -moz-box-shadow: 0 0 10px #ccc;
+	-webkit-box-shadow: 0 0 10px #ccc;
+    box-shadow: 0 0 10px #ccc;
 }
 .lockedbox 
 {
-    background: linear-gradient(21deg, #41414170, #41414170);
+    background: linear-gradient(21deg, #41414170, #1beabd73);
     border-radius: 5px;
     padding: 20px 20px;
     font-size: 150%;
