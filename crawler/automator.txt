@@ -1,9 +1,0 @@
-@echo off
-
-title New York Times Crossword Crawler!
-
-cd D:
-
-
-echo Crawling Completed!
-pause
