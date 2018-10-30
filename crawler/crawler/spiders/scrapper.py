@@ -5,7 +5,7 @@ import scrapy
 from crawler.items import crosswordItem, crosswordHolder, crosswordGridItem
 
 class testSpider(scrapy.Spider):
-    name = "crawler"
+    name = "scrapper"
     allowed_domains = ["www.nytimes.com"]
     start_urls = ["https://www.nytimes.com/crosswords/game/mini"]        
         
