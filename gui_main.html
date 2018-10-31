@@ -1,8 +1,42 @@
 <!DOCTYPE html>
 <html>
-<script type="text/javascript" src="gui_main.js"></script>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Puzzle UP!</title>
+<script>
+    var canvas;
+    var stage;
+    var solution_puzzle= [  '','','','','',
+                    '','','','','',
+                    '','','','','',
+                    '','','','','',
+                    '','','','',''];
+    var lockedboxids;
+    function init()
+    {
+        initWrapper();
+    }
+    function setLockedBoxID(ids)
+    {
+        for(var i = 0; i < 25; i++)
+            lockedboxids[i] = ids[i];
+    }
+    //initilize the wrapper
+    function initWrapper()
+    {
+        var myWrapper= document.getElementById("wrapper");
+        for(var i = 0 ; i < 25; i++)
+        {
+            var node = document.createElement("box"+i);
+            node.className = "box";
+            myWrapper.appendChild(node);
+            var textbox = document.createElement("input");
+            textbox.type = "text";
+            textbox.setAttribute("maxlength","1");
+            node.appendChild(textbox);
+        }
+    }
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 * {
     box-sizing: border-box;
@@ -15,37 +49,40 @@
     background-color: transparent;
     color: #444;
 }
-input[type=text] {
+input[type=text] 
+{
+    color:#ccc;
     width: 100%;
     height: 100%;
     float: middle;
-    text-align-last: center;
+    text-align  : center;
     box-sizing: border-box;
     border: none;
     background-color:transparent;
     font-size: 36px;
     outline : none;
     cursor:pointer;
+    text-transform: uppercase;
+    
 }
 .box 
 {
-    background: linear-gradient(21deg, #e985d070, #1beabd73);   
+    background: linear-gradient(21deg, #b9b9b970, #05050573);   
     size: 100px 100px;
-    border-radius: 9999em;
+    /*border-radius: 9999em;*/
     cursor:pointer;
-	
 }
 
 /*shine when hover over button*/
-.box :hover
+.box :hover, .box:active
 {
     background: lightgray;   
-    border-radius: 9999em;
+    /*border-radius: 9999em;*/
     -moz-box-shadow: 0 0 10px #ccc;
 	-webkit-box-shadow: 0 0 10px #ccc;
     box-shadow: 0 0 10px #ccc;
 }
-.lockedbox 
+.wrapper > .lockedbox 
 {
     background: linear-gradient(21deg, #41414170, #1beabd73);
     border-radius: 5px;
@@ -89,7 +126,7 @@ input[type=text] {
 }
 </style>
 </head>
-<body align= "center" style = "background-color:rgb(125, 125, 143)">
+<body align= "center" style = "background-color:rgb(125, 125, 143)"onload="init();">
 
 <h2>PUZZLE UP!</h2>
 <p>An Artifical Intelligience Project</p>
@@ -99,86 +136,8 @@ input[type=text] {
     
     <div class="row">
 
-        <div class = "wrapper">
-            <div class = "box 1,1">
-                <input type="text" maxlength="1"size="%100">
-            </div>
-            <div class = "box 1,2">
-                    <input type="text" maxlength="1"size="%100">
-                </div>
-            <div class = "box 1,3">
-                <input type="text" maxlength="1"size="%100">
-            </div>
-            <div class = "box 1,4">
-                    <input type="text" maxlength="1"size="%100">
-            </div>
-            <div class = "box 1,5">
-                <input type="text" maxlength="1"size="%100">
-            </div>
+        <div class = "wrapper" id = "wrapper" >
             
-            <div class = "box 2,1">
-                <input type="text" maxlength="1"size="%100">
-            </div>            
-            <div class = "box 2,2">
-                    <input type="text" maxlength="1"size="%100">
-                </div>
-            <div class = "box 2,3">
-                <input type="text" maxlength="1"size="%100">
-            </div>
-            <div class = "box 2,4">
-                    <input type="text" maxlength="1"size="%100">
-            </div>
-            <div class = "box 2,5">
-                <input type="text" maxlength="1"size="%100">
-            </div>
-            
-            <div class = "box 3,1">
-                <input type="text" maxlength="1"size="%100">
-            </div>
-            <div class = "box 3,2">
-                    <input type="text" maxlength="1"size="%100">
-                </div>
-            <div class = "box 3,3">
-                <input type="text" maxlength="1"size="%100">
-            </div>
-            <div class = "box 3,4">
-                    <input type="text" maxlength="1"size="%100">
-            </div>
-            <div class = "box 3,5">
-                <input type="text" maxlength="1"size="%100">
-            </div>
-            
-            <div class = "box 4,1">
-                <input type="text" maxlength="1"size="%100">
-            </div>
-            <div class = "box 4,2">
-                    <input type="text" maxlength="1"size="%100">
-                </div>
-            <div class = "box 4,3">
-                <input type="text" maxlength="1"size="%100">
-            </div>
-            <div class = "box 4,4">
-                    <input type="text" maxlength="1"size="%100">
-            </div>
-            <div class = "box 4,5">
-                <input type="text" maxlength="1"size="%100">
-            </div>
-
-            <div class = "box 5,1">
-                <input type="text" maxlength="1"size="%100">
-            </div>
-            <div class = "box 5,2">
-                    <input type="text" maxlength="1"size="%100">
-                </div>
-            <div class = "box 5,3">
-                <input type="text" maxlength="1"size="%100">
-            </div>
-            <div class = "box 5,4">
-                    <input type="text" maxlength="1"size="%100">
-            </div>
-            <div class = "box 5,5">
-                <input type="text" maxlength="1"size="%100">
-            </div>
         </div>
     
     </div>
