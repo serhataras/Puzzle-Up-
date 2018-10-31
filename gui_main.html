@@ -10,7 +10,16 @@
                     '','','','','',
                     '','','','','',
                     '','','','',''];
-    var lockedboxids;
+    var lockedboxids = [1,1,1,1,1,
+                        1,1,1,0,1,
+                        1,1,1,1,1,
+                        1,1,1,1,1,
+                        1,1,1,1,1];
+    var puzzlenumbers = [1,2,3,4,5,
+                        6,0,0,0,0,
+                        7,0,0,0,0,
+                        8,0,0,0,0,
+                        9,0,0,0,0];                   
     function init()
     {
         initWrapper();
@@ -26,13 +35,30 @@
         var myWrapper= document.getElementById("wrapper");
         for(var i = 0 ; i < 25; i++)
         {
-            var node = document.createElement("box"+i);
-            node.className = "box";
-            myWrapper.appendChild(node);
-            var textbox = document.createElement("input");
-            textbox.type = "text";
-            textbox.setAttribute("maxlength","1");
-            node.appendChild(textbox);
+            if(lockedboxids[i]==1){
+                var node = document.createElement("box"+i);
+                node.className = "box";
+                myWrapper.appendChild(node);
+                var textbox = document.createElement("input");
+                textbox.type = "text";
+                textbox.setAttribute("maxlength","1");
+                node.appendChild(textbox);
+                if(puzzlenumbers[i]!=0)
+                {
+                    var minitext = document.createElement("minitext");
+                    minitext.className = "minitext";
+                    minitext.type = "text";
+                    minitext.innerHTML = "1";
+                    node.appendChild(minitext);
+                    console.warn("here");
+                }
+            }
+            else
+            {
+                var node = document.createElement("lockedbox"+i);
+                node.className = "lockedbox";
+                myWrapper.appendChild(node);
+            }
         }
     }
 </script>
@@ -41,14 +67,21 @@
 * {
     box-sizing: border-box;
 }
-.wrapper {
+.body
+{
+    background-image: url("background.gif");
+}
+.wrapper 
+{
     display: grid;
     grid-template-columns: 100px 100px 100px 100px 100px;
-    grid-gap: 0px;
+    grid-gap: 5px;
     grid-template-rows: 100px 100px 100px 100px 100px;
     background-color: transparent;
     color: #444;
+
 }
+
 input[type=text] 
 {
     color:#ccc;
@@ -67,24 +100,24 @@ input[type=text]
 }
 .box 
 {
-    background: linear-gradient(21deg, #b9b9b970, #05050573);   
+    background: linear-gradient(21deg, #0040b8f6, #0040b8f6);   
     size: 100px 100px;
-    /*border-radius: 9999em;*/
+    border-radius: 10px;
     cursor:pointer;
 }
 
 /*shine when hover over button*/
 .box :hover, .box:active
 {
-    background: lightgray;   
+    background: lightblue;   
     /*border-radius: 9999em;*/
     -moz-box-shadow: 0 0 10px #ccc;
 	-webkit-box-shadow: 0 0 10px #ccc;
     box-shadow: 0 0 10px #ccc;
 }
-.wrapper > .lockedbox 
+.lockedbox 
 {
-    background: linear-gradient(21deg, #41414170, #1beabd73);
+    background: black;
     border-radius: 5px;
     padding: 20px 20px;
     font-size: 150%;
@@ -126,7 +159,7 @@ input[type=text]
 }
 </style>
 </head>
-<body align= "center" style = "background-color:rgb(125, 125, 143)"onload="init();">
+<body class="body" align= "center" onload="init();">
 
 <h2>PUZZLE UP!</h2>
 <p>An Artifical Intelligience Project</p>
