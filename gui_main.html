@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Puzzle UP!</title>
+<script>
+    var canvas;
+    var stage;
+    var solution_puzzle= [  '','','','','',
+                    '','','','','',
+                    '','','','','',
+                    '','','','','',
+                    '','','','',''];
+    var lockedboxids = [1,1,1,1,1,
+                        1,1,1,0,1,
+                        1,1,1,1,1,
+                        1,1,1,1,1,
+                        1,1,1,1,1];
+    var puzzlenumbers = [1,2,3,4,5,
+                        6,0,0,0,0,
+                        7,0,0,0,0,
+                        8,0,0,0,0,
+                        9,0,0,0,0];                   
+    function init()
+    {
+        initWrapper();
+    }
+    function setLockedBoxID(ids)
+    {
+        for(var i = 0; i < 25; i++)
+            lockedboxids[i] = ids[i];
+    }
+    //initilize the wrapper
+    function initWrapper()
+    {
+        var myWrapper= document.getElementById("wrapper");
+        for(var i = 0 ; i < 25; i++)
+        {
+            if(lockedboxids[i]==1){
+                var node = document.createElement("box"+i);
+                node.className = "box";
+                myWrapper.appendChild(node);
+                var textbox = document.createElement("input");
+                textbox.type = "text";
+                textbox.setAttribute("maxlength","1");
+                node.appendChild(textbox);
+                if(puzzlenumbers[i]!=0)
+                {
+                    var minitext = document.createElement("minitext");
+                    minitext.className = "minitext";
+                    minitext.type = "text";
+                    minitext.innerHTML = "1";
+                    node.appendChild(minitext);
+                    console.warn("here");
+                }
+            }
+            else
+            {
+                var node = document.createElement("lockedbox"+i);
+                node.className = "lockedbox";
+                myWrapper.appendChild(node);
+            }
+        }
+    }
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+    box-sizing: border-box;
+}
+.body
+{
+    background-image: url("background.gif");
+}
+.wrapper 
+{
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px 100px;
+    grid-gap: 5px;
+    grid-template-rows: 100px 100px 100px 100px 100px;
+    background-color: transparent;
+    color: #444;
+
+}
+
+input[type=text] 
+{
+    color:#ccc;
+    width: 100%;
+    height: 100%;
+    float: middle;
+    text-align  : center;
+    box-sizing: border-box;
+    border: none;
+    background-color:transparent;
+    font-size: 36px;
+    outline : none;
+    cursor:pointer;
+    text-transform: uppercase;
+    
+}
+.box 
+{
+    background: linear-gradient(21deg, #0040b8f6, #0040b8f6);   
+    size: 100px 100px;
+    border-radius: 10px;
+    cursor:pointer;
+}
+
+/*shine when hover over button*/
+.box :hover, .box:active
+{
+    background: lightblue;   
+    /*border-radius: 9999em;*/
+    -moz-box-shadow: 0 0 10px #ccc;
+	-webkit-box-shadow: 0 0 10px #ccc;
+    box-shadow: 0 0 10px #ccc;
+}
+.lockedbox 
+{
+    background: black;
+    border-radius: 5px;
+    padding: 20px 20px;
+    font-size: 150%;
+}
+.puzzlecol 
+{
+    float: left;
+    width: 63.0%;
+    padding: 10px;
+   
+}
+.hintcol 
+{
+    float: right;
+    width: 36.0%;
+    padding: 10px;
+   
+}
+.rowsandcols1 
+{
+    float: left;
+    width: 45%;
+    padding: 10px;
+   
+}
+.rowsandcols2 
+{
+    float: right;
+    width: 45%;
+    padding: 10px;
+   
+}
+/* Clear floats after the columns */
+.row:after 
+{
+    content: "";
+    display: table;
+    clear: both;
+}
+</style>
+</head>
+<body class="body" align= "center" onload="init();">
+
+<h2>PUZZLE UP!</h2>
+<p>An Artifical Intelligience Project</p>
+
+<div class="row">
+  <div class="puzzlecol">
+    
+    <div class="row">
+
+        <div class = "wrapper" id = "wrapper" >
+            
+        </div>
+    
+    </div>
+  </div>
+  <div class="hintcol" style="background-color:rgba(1, 196, 202, 0.562);">
+    <h2>Hint</h2>
+    <div class="rowsandcols1" style="background-color:blueviolet">
+            <h2>Accross</h2>
+    </div>
+    <div class="rowsandcols2" style="background-color:blueviolet">
+            <h2>Down</h2>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+</body>
+</html>
