@@ -12,7 +12,7 @@
                     '','','','',''];
     var lockedboxids = [1,1,1,1,1,
                         1,1,1,0,1,
-                        1,1,1,1,1,
+                        1,1,0,1,1,
                         1,1,1,1,1,
                         1,1,1,1,1];
     var puzzlenumbers = [1,2,3,4,5,
@@ -32,13 +32,14 @@
     //initilize the wrapper
     function initWrapper()
     {
-        var myWrapper= document.getElementById("wrapper");
+        var myWrapper= document.getElementById("wrapper_cross");
         for(var i = 0 ; i < 25; i++)
         {
             if(lockedboxids[i]==1)
             {
-                var node = document.createElement("box"+i);
+                var node = document.createElement("div");
                 node.className = "box";
+                node.id = "box"+i;    
                 myWrapper.appendChild(node);
                 var textbox = document.createElement("input");
                 textbox.type = "text";
@@ -46,19 +47,23 @@
                 
                 if(puzzlenumbers[i]!=0)
                 {
-                    var text = document.createTextNode(puzzlenumbers[i]);
-                    
+                    var text = document.createElement("div");
+                    text.className = "minitext";
+                    text.id = "minitext"+i;
+                    var textnode = document.createElement("span");
+                    textnode.innerHTML = ""+i;
+                    text.id="textnode"+i;
+                    text.appendChild(textnode);
                     node.appendChild(text);
                 }
-                node.style.color = "white";
-                node.style.padding = "0px";
                 node.appendChild(textbox);
 
             }
             else
             {
-                var node = document.createElement("lockedbox"+i);
+                var node = document.createElement("div");
                 node.className = "lockedbox";
+                node.id = "lockedbox"+i;
                 myWrapper.appendChild(node);
                 
             }
@@ -105,6 +110,7 @@ input[type=text]
 {
     background: linear-gradient(21deg, #0040b8f6, #0040b8f6);   
     size: 100px 100px;
+    color : white;
     border-radius: 10px;
     cursor:pointer;
 }
@@ -163,6 +169,15 @@ input[type=text]
     display: table;
     clear: both;
 }
+.minitext
+{
+    color:white;
+    position:fixed;
+    z-index: 1;
+    float:left;
+    font-weight: bold;
+
+}
 </style>
 </head>
 <body class="body" align= "center" onload="init();">
@@ -175,14 +190,14 @@ input[type=text]
     
     <div class="row">
 
-        <div class = "wrapper" id = "wrapper" >
+        <div class = "wrapper" id = "wrapper_cross" >
             
         </div>
     
     </div>
   </div>
   <div class="hintcol" style="background-color:rgba(1, 196, 202, 0.562);">
-    <h2>Hint</h2>
+    <h2>Hint</h2>q
     <div class="rowsandcols1" style="background-color:blueviolet">
             <h2>Accross</h2>
     </div>
