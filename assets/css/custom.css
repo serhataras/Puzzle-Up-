@@ -1,0 +1,105 @@
+#game_panel{
+
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px 100px;
+    grid-gap: 5px;
+    grid-template-rows: 100px 100px 100px 100px 100px;
+    background-color: transparent;
+    color: #444;
+
+}
+
+#clue_panel{
+
+
+}
+
+
+#clue_panel > div{
+    display: inline-block;
+    margin: 0 0;    
+}
+
+
+.gridItem
+{
+    background: linear-gradient(21deg, #ddddddf6, #555555f6);   
+    size: 100px 100px;
+    color : white;
+    border-radius: 10px;
+    cursor:pointer;
+}
+
+.gridwrapper 
+{
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px 100px;
+    grid-gap: 5px;
+    grid-template-rows: 100px 100px 100px 100px 100px;
+    background-color: transparent;
+    color: #444;
+
+}
+input[type=text].datepicker{
+
+    color:white;
+}
+ input[type=text].GridInput
+{
+    color:rgb(0, 0, 0);
+    width: 100px;
+    height: 100px;
+    float: middle;
+    text-align  : center;
+    box-sizing: border-box;
+    border: none;
+    background-color:transparent;
+    font-size: 30px;
+    font-weight: 900;
+    outline : none;
+    cursor:pointer;
+    text-transform: uppercase;
+    
+}
+.box 
+{
+    background: linear-gradient(21deg, rgba(216, 216, 216, 0.965), rgba(97, 97, 97, 0.397));   
+    size: 100px 100px;
+    color : black;
+    border-radius: 10px;
+    
+}
+
+/*shine when hover over button*/
+.box :hover, .box:active
+{
+    background: rgb(209, 209, 209);   
+    /*border-radius: 9999em;*/
+    -moz-box-shadow: 0 0 10px #ccc;
+	-webkit-box-shadow: 0 0 10px #ccc;
+    box-shadow: 0 0 10px #ccc;
+    border-radius: 10px;
+}
+.lockedbox 
+{
+    background: black;
+    border-radius: 5px;
+    font-size: 150%;
+}
+
+/* Clear floats after the columns */
+.row:after 
+{
+    content: "";
+    display: table;
+    clear: both;
+}
+.minitext
+{
+    color:white;
+    position:fixed;
+    z-index: 1;
+    float:left;
+    font-weight: bold;
+
+}
