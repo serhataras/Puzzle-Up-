@@ -1,20 +1,42 @@
+
+.navbar-brand > span{
+    font-size: 38px;
+    font-weight: bold;
+    border-color: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    
+    border-radius: 15px;
+    padding: 4px 12px;
+
+}
 #game_panel{
 
     display: grid;
     grid-template-columns: 100px 100px 100px 100px 100px;
-    grid-gap: 5px;
+    grid-gap: 3px;
     grid-template-rows: 100px 100px 100px 100px 100px;
     background-color: transparent;
-    color: #444;
+    color: #999;
+       background-size: 1rem 1rem;
 
 }
 
-#clue_panel{
-
+#clue_panel{    
+    left: 20%;
 
 }
 
+#across_clues{
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-size: 1rem 1rem;
+    border-radius: 15px;
+}
 
+
+#down_clues{
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-size: 1rem 1rem;
+    border-radius: 15px;
+}
 #clue_panel > div{
     display: inline-block;
     margin: 0 0;    
@@ -24,7 +46,7 @@
 .gridItem
 {
     background: linear-gradient(21deg, #ddddddf6, #555555f6);   
-    size: 100px 100px;
+    size: 120px 120px;
     color : white;
     border-radius: 10px;
     cursor:pointer;
@@ -118,3 +140,153 @@ input[type=text].datepicker{
     float: left;
     width: 45%;
     padding: 10px;
+
+
+}
+
+
+
+
+button.startButton {
+    background: #4CAF50;
+    border: none;
+    border-radius: 25px;
+    color: snow;
+    cursor: pointer;
+    font-size: 1.25em;
+    letter-spacing: .1em;
+    outline: none;
+    padding: .75em 2em;
+    position: relative;
+    text-transform: uppercase;
+  }
+  button.startButton:hover {
+    -webkit-animation: glow 1s ease-in infinite;
+            animation: glow 1s ease-in infinite;
+  }
+  button.startButton::before {
+    -webkit-animation: glow 1s ease-in infinite;
+            animation: glow 1s ease-in infinite;
+    background: #4CAF50;
+    border-radius: inherit;
+    content: '';
+    -webkit-filter: blur(10px);
+            filter: blur(10px);
+    opacity: .75;
+    position: absolute;
+    transition: all .3s ease-in-out;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: -1;
+  }
+  button.startButton:hover::before {
+    -webkit-filter: blur(20px);
+            filter: blur(20px);
+    opacity: 1;
+  }
+  
+  @-webkit-keyframes glow {
+    0% {
+      background: #4CAF50;
+    }
+    25% {
+      background: #66BB6A;
+    }
+    100% {
+      background: #4CAF50;
+    }
+  }
+  
+  @keyframes glow {
+    0% {
+      background: #4CAF50;
+    }
+    25% {
+      background: #66BB6A;
+    }
+    100% {
+      background: #4CAF50;
+    }
+  }
+  
+
+
+
+
+
+#box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 200px;
+    color: white;
+    font-family: 'Raleway';
+    font-size: 2.5rem;
+  }
+  .gradient-border {
+    --borderWidth: 3px;
+    background: #1D1F20;
+    position: relative;
+    border-radius: var(--borderWidth);
+  }
+  .gradient-border:after {
+    content: '';
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    border-radius: calc(2 * var(--borderWidth));
+    z-index: -1;
+    animation: animatedgradient 3s ease alternate infinite;
+    background-size: 300% 300%;
+  }
+  
+  
+  @keyframes animatedgradient {
+      0% {
+          background-position: 0% 50%;
+      }
+      50% {
+          background-position: 100% 50%;
+      }
+      100% {
+          background-position: 0% 50%;
+      }
+  }
+  
+.cluetextAccross{
+    margin: 15px 5px;
+    
+}
+.cluetextDown{
+    display: block; 
+    margin: 15px 11px;
+    
+}
+span.clueNumberDown{
+
+    margin-left: 25px;
+}
+.startButton{
+    margin: 20px 10px
+}
+
+.gamestart{
+    float: right;
+    margin: 10px 10px;
+}
+
+#datetimepickerID{
+    color: white;
+    font-weight: bold;
+    width: 300px;
+    text-align: center;
+    border-radius: 50px;
+    border-top: transparent;
+    border-top-style: none;
+}

@@ -8,15 +8,15 @@ var solution_puzzle= [  '','','','','',
 
 
 var lockedboxids = [1,1,1,1,1,
-                    1,1,1,0,1,
-                    1,1,0,1,1,
+                    1,1,1,1,1,
+                    1,1,1,1,1,
                     1,1,1,1,1,
                     1,1,1,1,1];
-var puzzlenumbers = [1,2,3,4,0,
-                    6,0,0,0,0,
-                    7,0,0,0,0,
-                    8,0,0,0,0,
-                    9,0,0,0,0];     
+var puzzlenumbers = [0,0,0,0,0,
+                    0,0,0,0,0,
+                    0,0,0,0,0,
+                    0,0,0,0,0,
+                    0,0,0,0,0];     
 
 
 
@@ -76,6 +76,8 @@ var puzzlenumbers = [1,2,3,4,0,
             console.log(down_clues_numbers);
             console.log(down_clues);
             parseJSON();
+            initializeCrosswordInstance();
+            initClues(accross_clues_numbers,accross_clues,down_clues_numbers, down_clues);
           }); 
       }, 200);
 
@@ -98,7 +100,7 @@ var puzzlenumbers = [1,2,3,4,0,
 
 
   function init() {
-    initializeCrosswordInstance();
+    
 }
 
 
@@ -132,6 +134,7 @@ function parseJSON(){
  // function 
     function initializeCrosswordInstance(){
         var myWrapper= document.getElementById("game_panel");
+        myWrapper.innerHTML="";
         for(var i = 0 ; i < 25; i++)
         {
             if(lockedboxids[i]==1)
@@ -151,7 +154,7 @@ function parseJSON(){
                     text.className = "minitext";
                     text.id = "minitext"+i;
                     var textnode = document.createElement("span");
-                    textnode.innerHTML = ""+i;
+                    textnode.innerHTML = ""+puzzlenumbers[i];
                     text.id="textnode"+i;
                     text.appendChild(textnode);
                     node.appendChild(text);
@@ -172,35 +175,53 @@ function parseJSON(){
 
     function initClues(accross_clues_numbers,accross_clues,down_clues_numbers, down_clues)
     {
-        var clues = document.getElementById("clues_text");
-        var accross_col = document.getElementById("across_clues");
-        var down_col = document.getElementById("down_clues");
+        var clues = document.getElementById("clue_panel");
+
+        var accross_col = document.getElementById("acrossClue");
+        var down_col = document.getElementById("downClue");
+
         accross_col.className = "cluescol";
         down_col.className = "cluescol";
-
-
+        
+        down_col.innerHTML="";
+        accross_col.innerHTML="";
         console.warn(accross_clues.length);
         for(var i = 0; i < accross_clues.length ; i++)
         {
             var text = document.createElement("div");
-            text.className = "cluetext";
-            text.id = "accrosscluetext"+i;
-            text.setAttribute("cluenumber",accross_clues_numbers[i]);
+            text.className = "cluetextAccross";
+            text.id = "accross_Clue_Text_"+i;
+            text.setAttribute("cluenumber_",accross_clues_numbers[i]);
             var textnode = document.createElement("span");
-            textnode.innerHTML = ""+accross_clues_numbers[i]+" "+accross_clues[i];
+            textnode.className="clueNumberAccross";
+            textnode.innerHTML = ""+accross_clues_numbers[i]+" - ";
+
+            var textnodeClue = document.createElement("span");
+            textnodeClue.className="accrossClueText";
+            textnodeClue.innerHTML=accross_clues[i];
+
             text.appendChild(textnode);
+            text.appendChild(textnodeClue);
+
             accross_col.appendChild(text);
         }
         for(var i = 0; i < down_clues.length ; i++)
         {
             var text = document.createElement("div");
-            text.className = "cluetext";
+            text.className = "cluetextDown";
             text.id = "downcluetext"+i;
             text.setAttribute("cluenumber",down_clues_numbers[i]);
             var textnode = document.createElement("span");
-            textnode.innerHTML = ""+down_clues_numbers[i]+" "+down_clues[i];
-            text.style = 
+            textnode.className="clueNumberDown";
+            textnode.innerHTML = ""+down_clues_numbers[i]+" - ";
+
+            var textnodeClue = document.createElement("span");
+            textnodeClue.className="DownClueText";
+            textnodeClue.innerHTML=down_clues[i];
+
             text.appendChild(textnode);
+            text.appendChild(textnodeClue);
+
             down_col.appendChild(text);
         }
         clues.appendChild(accross_col);
