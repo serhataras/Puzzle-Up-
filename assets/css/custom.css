@@ -103,3 +103,18 @@ input[type=text].datepicker{
     font-weight: bold;
 
 }
+
+.hintcol 
+{
+    color: white;
+    float: right;
+    width: 36.0%;
+    padding: 10px;
+   
+}
+.cluescol 
+{
+    color: white;
+    float: left;
+    width: 45%;
+    padding: 10px;

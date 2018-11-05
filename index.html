@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="en">
 
 <head>
@@ -14,9 +13,11 @@
   <link href="assets/css/material-kit.css?v=2.0.4" rel="stylesheet" />
   <link href="assets/css/custom.css" rel="stylesheet" />
 
+
 </head>
 
 <body>
+
   <nav class="navbar navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg" color-on-scroll="100">
     <div class="container">
       <div class="navbar-translate">
@@ -35,8 +36,9 @@
           <li class="nav-item">
                <div class="col-md-12">
                   <div class="form-group ">
-                    <input type="text" class="datepicker form-control datetimepicker" value="10/05/2016">
+                    <input id="datetimepickerID" type="text" class="datepicker form-control datetimepicker" data-format="DD MM YYYY" value="29 10 2018">
                   </div>
+                  <button onclick="setPathandLoadJSON()">Load the Game</button> 
                 </div>
           </li>
         </ul>
@@ -53,7 +55,9 @@
         <!--Crossword Panel-->
         <div class="col-lg-6 gridwrapper"id="game_panel" >
 
+         
         </div>
+        
         <!--Clue Panel-->
         <div class="col-lg-6"id="clue_panel" >
             <div class="col-lg-5 " id="across_clues">
@@ -69,11 +73,12 @@
                 </ol>
             </div>
         </div>
+
+
+        <div class="hintcol" id = "clues_text"> </div>
       </div>
     </div>
   </div>
-
-
 
   <div class="main main-raised">
     <div class="container">
@@ -94,6 +99,7 @@
       <div class="copyright float-right">
         &copy;
         <script>
+       
           document.write(new Date().getFullYear())
         </script>by
         <a href="https://www.linkedin.com/in/serhataras/" target="blank">Serhat Aras</a> &
@@ -102,27 +108,32 @@
     </div>
   </footer>
 
-    <!--   Core JS Files   -->
-    <script src="./assets/js/puzzleup.js" type="text/javascript"></script>
+      <!--   Core JS Files   -->
+      <script src="./assets/js/puzzleup.js" type="text/javascript"></script>
 
-    <script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
-    <script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
-    <script src="./assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
-    <script src="./assets/js/plugins/moment.min.js"></script>
-    <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-    <script src="./assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
-    <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
-    <script src="./assets/js/material-kit.js?v=2.0.4" type="text/javascript"></script>
+      <script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
+      <script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
+      <script src="./assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+      <script src="./assets/js/plugins/moment.min.js"></script>
+      <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+      <script src="./assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
+      <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
+      <script src="./assets/js/material-kit.js?v=2.0.4" type="text/javascript"></script>
+  
+      
+    <script>
+        $(document).ready(function() { 
+          materialKit.initFormExtendedDatetimepickers();
+         init();
+        });
+        
+       
+    
+    </script>
 
     <script>
-      $(document).ready(function() {
-        //init DateTimePickers
-       
-        init();
-        materialKit.initFormExtendedDatetimepickers();
-  
     
-      });
+   
     </script>
 </body>
 

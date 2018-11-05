@@ -106,7 +106,9 @@ materialKit = {
 
   initFormExtendedDatetimepickers: function() {
     $('.datetimepicker').datetimepicker({
+      useCurrent: true,
       format: 'DD-MM-YYYY',
+      
       icons: {
         time: "fa fa-clock-o",
         date: "fa fa-calendar",
@@ -118,6 +120,7 @@ materialKit = {
         clear: 'fa fa-trash',
         close: 'fa fa-remove'
       }
+
     });
   },
 
