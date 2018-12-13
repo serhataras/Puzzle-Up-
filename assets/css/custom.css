@@ -91,6 +91,13 @@ input[type=text].datepicker{
     border-radius: 10px;
     
 }
+.revealed{
+    color : white;
+    border-radius: 10px;
+    margin: 20 30; 
+  
+    
+}
 
 /*shine when hover over button*/
 .box :hover, .box:active
