@@ -71,18 +71,26 @@
                   </div>
 
             </div>
-                           
+                   
+             
+                   
+                            
         </div>
-                   <div class="col-md-12">
-                          <div class="form-group gamestart" >
-                              <button class="startButton" onclick="reveal()">Reveal</button> 
-                          </div>
-                           <div class="form-group gamestart" >
-                              <button class="startButton" onclick="reset()">Reset</button> 
-                          </div>
-                          <div class="form-group gamestart" >
-                              <button class="startButton" onclick="finish()">Finish</button> 
-                          </div>      
+                 
+                <div class="col-md-12">
+                   
+                
+                        <div class="form-group gamestart" >
+                          <button class="startButton" onclick="reveal()">Reveal</button> 
+                        </div>
+                        <div class="form-group gamestart" >
+                          <button class="startButton" onclick="playPlayer()">Check</button> 
+                        </div>     
+                        <div class="form-group gamestart" >
+                          <button class="startButton" onclick="reset()">Reset</button> 
+                          
+                        </div>    
+                   
                                              
                      </div>
 
@@ -93,8 +101,12 @@
       
     </div>
     <div class="main main-raised">
+     <div class="form-group gamestartAI" >
+              <button class="startButton" onclick="playAI()">AI<p>Second Click will display the Statistics about our Artificial Intelligence Model</p>   </button> 
+          </div>    
     <div class="container">
-      <div class="section text-center">
+        
+      <div id="result_AI" class="section text-center">
           
       </div>
     </div>
@@ -104,7 +116,7 @@
       <nav class="float-left">
         <ul>
           <li>
-            <h5>Bilkent Universitesi <span> <h6> CS461 Artificial Intelligence Project Demo #1 </h6></span> </h5>
+            <h5>Bilkent Universitesi <span> <h6> CS461 Artificial Intelligence Project </h6></span> </h5>
           </li>
         </ul>
       </nav>
@@ -137,7 +149,7 @@
     <script>
         $(document).ready(function() { 
           materialKit.initFormExtendedDatetimepickers();
-          init();
+          
         });
         
         

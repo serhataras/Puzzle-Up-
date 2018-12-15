@@ -91,14 +91,6 @@ input[type=text].datepicker{
     border-radius: 10px;
     
 }
-.revealed{
-    color : white;
-    border-radius: 10px;
-    margin: 20 30; 
-  
-    
-}
-
 /*shine when hover over button*/
 .box :hover, .box:active
 {
@@ -109,6 +101,57 @@ input[type=text].datepicker{
     box-shadow: 0 0 10px #ccc;
     border-radius: 10px;
 }
+.box_wrong{
+    background: linear-gradient(21deg, rgba(216, 216, 216, 0.965), rgba(97, 97, 97, 0.397));   
+    size: 100px 100px;
+    color : black;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ff0000;
+    -moz-box-shadow: 0 0 10px #ff0000;
+	-webkit-box-shadow: 0 0 10px #ff0000;
+}
+.box_wrong :hover, .box_wrong:active
+{
+    background: rgb(209, 209, 209);   
+    /*border-radius: 9999em;*/
+    box-shadow: 0 0 10px #ff0000;
+    -moz-box-shadow: 0 0 10px #ff0000;
+	-webkit-box-shadow: 0 0 10px #ff0000;
+    border-radius: 10px;
+}
+
+.box_correct
+{
+    background: linear-gradient(21deg, rgba(216, 216, 216, 0.965), rgba(97, 97, 97, 0.397));   
+    size: 100px 100px;
+    color : black;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #adff2f;
+    -moz-box-shadow: 0 0 10px #adff2f;
+	-webkit-box-shadow: 0 0 10px #adff2f;
+    
+}
+
+.box_correct :hover, .box_correct:active
+{
+    background: rgb(209, 209, 209);   
+    /*border-radius: 9999em;*/
+    box-shadow: 0 0 10px #adff2f;
+    -moz-box-shadow: 0 0 10px #adff2f;
+	-webkit-box-shadow: 0 0 10px #adff2f;
+    border-radius: 10px;
+}
+
+
+.revealed{
+    color : white;
+    border-radius: 10px;
+    margin: 20 30; 
+  
+    
+}
+
+
 .lockedbox 
 {
     background: black;
@@ -284,10 +327,18 @@ span.clueNumberDown{
 }
 
 .gamestart{
+    position: sticky;
+    right: 0;
     float: right;
     margin: 10px 10px;
 }
 
+.gamestartAI{
+    position: relative;
+    right: 0;
+    float: right;
+    margin: 10px 20px;
+}
 #datetimepickerID{
     color: white;
     font-weight: bold;

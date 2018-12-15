@@ -20,7 +20,7 @@ acrossdownXpath = '//*[@id="root"]/div/div[1]/div[4]/div/main/div[2]/div/article
 # Specifying incognito mode as you launch your browser[OPTIONAL]
 option = webdriver.ChromeOptions()
 option.add_argument("incognito")
-#option.add_argument("headless")
+option.add_argument("headless")
 #option.add_argument("--ignore-certificate-errors-spki-list")
 #option.add_argument("--ignore-ssl-errors")
 #option.add_argument('--disable-browser-side-navigation')
